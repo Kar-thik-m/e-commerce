@@ -1,0 +1,16 @@
+.carticon{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 2rem;
+}
+.carticon>i:nth-child(1){
+    font-size: x-large;
+    color: red;
+}
+.carticon>i:nth-child(2){
+    font-size: x-large;
+    color: red;
+    
+   
+}

@@ -1,0 +1,95 @@
+.navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+}
+
+.navList {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 12rem;
+}
+
+.navList a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.navList a:hover {
+    cursor: pointer;
+}
+
+.hamburger {
+    display: none;
+}
+.homelogo{
+    display: flex;
+gap: 2rem;
+  font-size: x-large;
+  position: absolute;
+    right: 3rem;
+    top: 2rem;
+}
+.homelogo a{
+    display: flex;
+  gap: 1rem;
+  font-size: x-large;
+  color: white;
+}
+
+@media screen and (max-width: 853px) {
+    .navList {
+        display: none;
+    }
+
+    .show {
+      
+        display: flex;
+        flex-direction: column;
+        background-color: #333;
+        align-items: center;
+        position: relative;
+     
+        left: 2rem;
+        padding: 1rem;
+    }
+
+    .show a {
+        cursor: pointer;
+        text-decoration: none;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: large;
+    }
+
+    .show a:hover {
+        color: #64ffda;
+    }
+.navContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.homelogo{
+    position: absolute;
+    right: 2rem;
+    top: 8rem;
+}
+    .hamburger {
+        display: block;
+        background: none;
+        color: #d4d4d4;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        position: relative;
+        left: 0rem;
+        top: 1rem;
+    }
+}
