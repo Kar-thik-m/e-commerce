@@ -1,6 +1,6 @@
 import express  from "express";
 import connectToDb from "../backend/connect/mongooseconnect.js";
-import itemRouter from "../../../New folder (2)/e-commerce/backend/route/items.js";
+import itemRouter from "./route/items.js"
 import orderRouter from "./route/order.js";
 import cors from "cors";
 const app = express()
