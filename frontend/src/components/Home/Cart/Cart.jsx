@@ -9,7 +9,7 @@ const Cart = ({product}) => {
             <div className="card p-3 rounded" >
                 <div className={cartstyle.carticon}>
                 
-                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                <i className="fa fa-heart-o" aria-hidden="true"></i>
                 </div>
                 
                 <div style={{width:"100%",height:"20vh",overflow:"hidden",display:"flex",alignItems:"center",justifyContent:"center"}}>

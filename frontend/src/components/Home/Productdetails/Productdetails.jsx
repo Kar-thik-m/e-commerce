@@ -2,12 +2,13 @@
 import Pdstyle from "../Productdetails/Pdetails.module.css"
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import { backendUrl } from "../../../../config";
 import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 const Productdetails = ({ addcart, setaddcart }) => {
     const [qty, setQty] = useState(1);
     const [product, setProduct] = useState([]);
-
+const navigate=useNavigate();
     const { id } = useParams();
 
     const Addtocart = () => {
@@ -17,6 +18,7 @@ const Productdetails = ({ addcart, setaddcart }) => {
             const newitem = { product,qty }
             setaddcart((items) => ([...items, newitem]));
             toast("Cart Item added succesfully!")
+            navigate("/items/home")
         } else {
             toast("Cart Item already added")
         }
@@ -25,9 +27,10 @@ const Productdetails = ({ addcart, setaddcart }) => {
     useEffect(() => {
         const fetchDetails = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/product/items/${id}`);
+                const response = await fetch(`${backendUrl }product/items/${id}`);
                 const jsonData = await response.json();
                 setProduct(jsonData.item);
+                
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -52,7 +55,7 @@ const Productdetails = ({ addcart, setaddcart }) => {
         <h3 style={{textAlign:"center",paddingTop:"2rem"}}>Products </h3>
             <div className={Pdstyle.whole}>
                 <div className={Pdstyle.left}>
-                    <img src={product.images[0].image}></img>
+                   
 
                 </div>
                 <div className={Pdstyle.right}>

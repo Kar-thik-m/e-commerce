@@ -1,12 +1,12 @@
 
 import Detailstyle from "../Productdetails/Detailscart.module.css"
-
+import { backendUrl } from "../../../../config";
 import {toast} from 'react-toastify';
 const Detailscart = ({ addcart, setaddcart }) => {
-
+console.log(addcart)
     const removeItem = (item) => {
         const updatedItems = addcart.filter((pro) => {
-            if (pro.product.item._id !== item.product.item._id) {
+            if (pro.product._id !== item.product._id) {
                 return true;
             }
         })
@@ -14,7 +14,7 @@ const Detailscart = ({ addcart, setaddcart }) => {
     }
     const buy=async()=> {
         try {
-            const response = await fetch('http://localhost:5000/order/orderitems', {
+            const response = await fetch('https://e-commerce-1-3t4x.onrender.com/order/orderitems', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(addcart)
@@ -26,7 +26,7 @@ const Detailscart = ({ addcart, setaddcart }) => {
                 toast.success("Order Success!");
             } else {
               
-                console.error('Failed to place order:', response.statusText);
+                console.error('Failed to place order');
             }
         } catch (error) {
             
@@ -40,18 +40,20 @@ const Detailscart = ({ addcart, setaddcart }) => {
             <div className={Detailstyle.whole}>
                 <div className={Detailstyle.left}>
                     {addcart.map((item) => (
-                        <div className={Detailstyle.details}>
+                       
+                        <div className={Detailstyle.details} key={item.product.name}>
                             <div className={Detailstyle.image}>
-                                <img  src={item.product.item.images[0].image}></img>
+                             
+                             <img src={item.product.images[0].image}></img>
                             </div>
                             <div>
-                                {item.product.item.name}
+                            { item.product.name}
                             </div>
                             <div>
-                                ${item.product.item.price}
+                            { item.product.price}
                             </div>
                             <div>
-                                {item.qty}
+                            { item.qyt}
                             </div>
                             <div className={Detailstyle.delete}>
                                 <i class="fa fa-trash" onClick={() => removeItem(item)} aria-hidden="true"></i>
@@ -64,7 +66,7 @@ const Detailscart = ({ addcart, setaddcart }) => {
                     <h1> Order Summery</h1>
                     <hr />
                     <p className={Detailstyle.subtotal}>Subtotal:  <span className={Detailstyle.total}>{addcart.reduce((acc, item) => (acc + item.qty), 0)} (Units)</span></p>
-                    <p className={Detailstyle.subtotal}> total: <span  className={Detailstyle.total}>${Number(addcart.reduce((acc, item) => (acc + item.product.item.price * item.qty), 0)).toFixed(2)}</span></p>
+                    <p className={Detailstyle.subtotal}> total: <span  className={Detailstyle.total}>${Number(addcart.reduce((acc, item) => (acc + item.product.price * item.qty), 0)).toFixed(2)}</span></p>
                     <button onClick={buy} type="button" className="btn btn-primary btn-lg"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>  Buy</button>
                     <hr />
                 </div>
