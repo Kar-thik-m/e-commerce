@@ -12,7 +12,7 @@ const navigate=useNavigate();
     const { id } = useParams();
 
     const Addtocart = () => {
-        const find = addcart.find((item) => item.product.item._id == product.item._id)
+        const find = addcart.find((item) => product._id == item._id)
 
         if (!find) {
             const newitem = { product,qty }
@@ -55,8 +55,7 @@ const navigate=useNavigate();
         <h3 style={{textAlign:"center",paddingTop:"2rem"}}>Products </h3>
             <div className={Pdstyle.whole}>
                 <div className={Pdstyle.left}>
-                   
-
+               <img src={product.image}></img>
                 </div>
                 <div className={Pdstyle.right}>
                     <div>
