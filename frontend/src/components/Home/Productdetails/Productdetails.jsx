@@ -27,7 +27,7 @@ const navigate=useNavigate();
     useEffect(() => {
         const fetchDetails = async () => {
             try {
-                const response = await fetch(`${backendUrl }product/items/${id}`);
+                const response = await fetch(`${backendUrl }/product/items/${id}`);
                 const jsonData = await response.json();
                 setProduct(jsonData.item);
                 

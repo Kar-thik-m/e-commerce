@@ -1,1 +1,1 @@
-export const backendUrl = "https://e-commerce-1-3t4x.onrender.com/"
+export const backendUrl = "https://e-commerce-1-3t4x.onrender.com"

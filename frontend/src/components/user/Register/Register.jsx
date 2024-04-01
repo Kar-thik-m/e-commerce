@@ -3,7 +3,7 @@ import { backendUrl } from "../../../../config";
 import { useNavigate } from "react-router-dom";
 import Rstyle from "../Register/Register.module.css";
 import Logo from "../../../assets/logo.png"
-
+import {toast} from 'react-toastify';
 const Register = () => {
   const navigate = useNavigate(); 
 
@@ -16,7 +16,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const registerResponse = await fetch(`${backendUrl}/user/register`, {
+    const registerResponse = await fetch(`https://e-commerce-1-3t4x.onrender.com/user/register`, {
       method: "POST",
       body: JSON.stringify(formdata),
       headers: {
@@ -25,18 +25,18 @@ const Register = () => {
     });
     const data = await registerResponse.json();
     if (registerResponse.status === 200) {
-      alert('Register successful');
+      toast.success('Register successful');
       setFormData(initialState);
-      navigate("/items/login"); // Using navigate function to navigate to login page
+      navigate("/items/login");
     } else {
-      alert('Register failed. Please try another email.');
+      toast.success('Register failed. Please try another email.');
     }
     console.log(data);
     setFormData(initialState);
   };
 
   const navigateToLogin = () => {
-    navigate("/items/login"); // Using navigate function to navigate to login page
+    navigate("/items/login"); 
   };
 
   return (

@@ -17,16 +17,17 @@ const [addcart,setaddcart]=useState([]);
         <Router>
         <ToastContainer theme='dark' position='top-center' />
                 <Routes>
-                    <Route index path="/" element={<Login />} />
+                <Route index path="/" element={<Login />}  />
+                    <Route  element={<Home addcart={addcart} setaddcart={setaddcart}/>} />
                     <Route path="items" >
-                        <Route path="home" element={<Home addcart={addcart} setaddcart={setaddcart} />} />
+                        <Route path="home" element={<Home />} />
                         <Route path="search" element={<Home />} />
                         <Route path="Catagorey" element={<Catagorey />} />
                         <Route path="Orders" element={<Order/>} />
                         <Route path="Addcart" element={<Detailscart  addcart={addcart} setaddcart={setaddcart}/>}/>
                         <Route path="FaQ" element="" />
-                        <Route path="login" element={<Login/>} />
-                        <Route path="register" element={<Register/>} />
+                        <Route path="login" element={<Login />} />
+                        <Route path="registere" element={Register}/>
                         <Route path="products/:id" element={<Productdetails addcart={addcart} setaddcart={setaddcart}/>}/>
                        
                     </Route>

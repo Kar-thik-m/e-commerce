@@ -3,6 +3,7 @@ import { backendUrl } from "../../../../config";
 import { useNavigate, Navigate } from "react-router-dom";
 import Lstyle from "../login/login.module.css";
 import Logo from "../../../assets/logo.png";
+import {toast} from 'react-toastify';
 const Login = () => {
   const navigate = useNavigate();
   const initialState = {
@@ -13,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const loginResponse = await fetch(`${backendUrl}/user/login`, {
+    const loginResponse = await fetch(`https://e-commerce-1-3t4x.onrender.com/user/login`, {
       method: 'POST',
       body: JSON.stringify(formdata),
       headers: {
@@ -23,13 +24,13 @@ const Login = () => {
 
     const data = await loginResponse.json();
     if (loginResponse.status === 200) {
-      alert('login successful')
+      toast.success('login successful')
 
       setFormData(initialState)
       navigate("/items/home")
     }
     else {
-      alert('login failed')
+        toast.success('login failed')
     }
     if (localStorage.getItem('users') && JSON.parse(localStorage.getItem('users'))) {
       return <Navigate to={'/'} replace />

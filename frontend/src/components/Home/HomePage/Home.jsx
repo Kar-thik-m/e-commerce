@@ -6,7 +6,7 @@ import logo from "../../../assets/logo.png";
 import Cart from "../Cart/Cart.jsx";
 import Search from '../Search/search.jsx';
 import Footer from '../Footer/Footer.jsx';
-import { backendUrl } from '../../../../config.js';
+
 const Home = ({addcart}) => {
     const [product, setproduct] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +14,7 @@ const Home = ({addcart}) => {
 
     const fetchData = async () => {
       try {
-          const response = await fetch(`${backendUrl}product/items?${searchparams}`);
+          const response = await fetch(`https://e-commerce-1-3t4x.onrender.com/product/items?${searchparams}`);
           if (!response.ok) {
               throw new Error('Network response was not ok');
           }
