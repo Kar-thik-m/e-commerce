@@ -27,7 +27,7 @@ const [addcart,setaddcart]=useState([]);
                         <Route path="Addcart" element={<Detailscart  addcart={addcart} setaddcart={setaddcart}/>}/>
                         <Route path="FaQ" element="" />
                         <Route path="login" element={<Login />} />
-                        <Route path="registere" element={Register}/>
+                        <Route path="register" element={<Register/>}/>
                         <Route path="products/:id" element={<Productdetails addcart={addcart} setaddcart={setaddcart}/>}/>
                        
                     </Route>
